@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Bubble Shooter</title>
+        <meta charset = "utf-8">
+        <link rel="stylesheet" type="text/css" href="_css/main.css">
+        <script src="_js/modernizr.js"></script>
+        <script>
+            Modernizr.load([{
+                load: "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
+                complete: function () {
+                    if (!window.jQuery) {
+                        Modernizr.load ("_js/jquery-2.1.4.min.js");
+                    }
+                }
+            },
+            "_js/ui.js",
+            {
+                load: "_js/game.js",
+                complete: function () {
+                    $(function () {
+                        var game = new BubbleShoot.Game();
+                        game.init();
+                    })
+                }
+            }]);
+        </script>
+    </head>
+    <body>
+        <div id="page">
+            <div id="top_bar"></div> 
+            <div id="game"></div>
+            <div id="footer_bar"></div>
+            <div id="start_game" class="dialog">
+                <div id="start_game_message">
+                    <h2>Start a New Game</h2>    
+                </div> <!-- End start_game_message -->
+                <div class="but_start_game button">
+                    New Game        
+                </div> <!-- End but_start_game button -->
+            </div> <!-- End start_game -->
+        </div><!-- End page -->
+    </body>
+</html>
+
